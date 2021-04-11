@@ -1,0 +1,21 @@
+#projectFormContainer {
+    display: none;
+}
+
+#taskFormContainer {
+    display: none;
+}
+
+#projectsList > div {
+    height: 40px;
+    margin: 10px 0;
+}
+
+#tasksList > div {
+    height: 40px;
+    margin: 10px 0;
+}
+
+.project, .task {
+    border: 1px solid grey;
+}
