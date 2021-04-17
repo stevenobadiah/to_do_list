@@ -1,0 +1,101 @@
+/* sass --watch dist/style/style.scss */
+body {
+  background-color: white; }
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #2d6832; }
+  header h1 {
+    color: #d8d8d8;
+    font-weight: bold; }
+
+main {
+  min-height: 500px; }
+  main #projects {
+    padding: 20px;
+    background-color: #5fc067; }
+    main #projects #projectsHeader {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start; }
+      main #projects #projectsHeader h2 {
+        padding-right: 20px; }
+  main #projectDetails {
+    padding: 20px; }
+    main #projectDetails #projectHeader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100px; }
+    main #projectDetails #tasks {
+      margin: 10px 0; }
+      main #projectDetails #tasks #tasksHeading {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom: 1px solid black;
+        margin-bottom: 10px; }
+        main #projectDetails #tasks #tasksHeading h3 {
+          padding-right: 20px; }
+      main #projectDetails #tasks .tasksSectionHeading {
+        text-decoration: underline;
+        padding: 10px 0; }
+      main #projectDetails #tasks .taskSection .task {
+        padding: 10px; }
+        main #projectDetails #tasks .taskSection .task .taskInfo {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding-bottom: 10px; }
+          main #projectDetails #tasks .taskSection .task .taskInfo .taskCompleteSection {
+            display: flex;
+            flex-direction: row;
+            align-items: center; }
+            main #projectDetails #tasks .taskSection .task .taskInfo .taskCompleteSection p {
+              padding-right: 5px; }
+          main #projectDetails #tasks .taskSection .task .taskInfo p {
+            margin-bottom: 0; }
+  main #formSection {
+    padding: 20px; }
+    main #formSection div form {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; }
+      main #formSection div form label {
+        margin-bottom: 2px; }
+      main #formSection div form button {
+        margin: 10px 10px 0 0;
+        min-width: 40%;
+        width: 40%; }
+      main #formSection div form input, main #formSection div form select {
+        width: 80%;
+        margin-bottom: 10px; }
+
+.form-container {
+  display: none; }
+
+#projectsList div {
+  height: 40px;
+  margin: 10px 0; }
+
+#tasksList > div {
+  height: 80px;
+  margin: 10px 0; }
+
+.project, .task {
+  border: 1px solid grey; }
+
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.projectEditBtn {
+  width: 100px; }
+
+.projectTitle {
+  width: 300px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,140 @@
+/* sass --watch dist/style/style.scss */
+
+$light-green: #5fc067;
+$dark-green: #2d6832;
+$silver: #d8d8d8;
+
+body {
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: $dark-green;
+    h1 {
+        color: $silver;
+        font-weight: bold;
+    }
+}
+
+main {
+    min-height: 500px;
+    #projects {
+        padding: 20px;
+        background-color: $light-green;
+        #projectsHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            h2 {
+                padding-right: 20px;
+            }
+        }
+    }
+    #projectDetails {
+        padding: 20px;
+        #projectHeader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100px;
+        }
+        #tasks {
+            margin: 10px 0;
+            #tasksHeading {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                border-bottom: 1px solid black;
+                margin-bottom: 10px;
+                h3 {
+                    padding-right: 20px;
+                }
+            }
+            .tasksSectionHeading {
+                text-decoration: underline;
+                padding: 10px 0;
+            }
+            .taskSection {
+                .task {
+                    padding: 10px;
+                    .taskInfo {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding-bottom: 10px;
+                        .taskCompleteSection {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            p {
+                                padding-right: 5px;
+                            }
+                        }
+                        p {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #formSection {
+        padding: 20px;
+        div {
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                label {
+                    margin-bottom: 2px;
+                }
+                button {
+                    margin: 10px 10px 0 0;
+                    min-width: 40%;
+                    width: 40%;
+                }
+                input, select {
+                    width: 80%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+.form-container {
+    display: none;
+}
+
+#projectsList {
+    div {
+        height: 40px;
+        margin: 10px 0;
+    }
+} 
+
+#tasksList > div {
+    height: 80px;
+    margin: 10px 0;
+}
+
+.project, .task {
+    border: 1px solid grey;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projectEditBtn {
+    width: 100px;
+}
+
+.projectTitle {
+    width: 300px;
+}

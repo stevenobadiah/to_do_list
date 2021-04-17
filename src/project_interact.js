@@ -15,6 +15,10 @@ const addProject = (ev)=> {
     )
 
     projectList.push(project);
+    
+    //var projectListStorage = {key: "project"};
+    //localStorage.object = JSON.stringify(projectListStorage)
+    //projectListStorage = JSON.parse(localStorage.object)
 
     createProjectDOM(project)
 

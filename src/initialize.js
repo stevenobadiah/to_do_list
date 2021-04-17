@@ -51,6 +51,9 @@ const initialize = function() {
 }
 
 const createDefaults = function() {
+    //if (localStorage.getItem('projectList').length == 1) {
+    //    
+    //}
     let date = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
     date = '2025-05-19'
 
@@ -87,7 +90,10 @@ const createDefaults = function() {
     createTaskDOM(task2)
     currentProject.tasks.push(task1)
     currentProject.tasks.push(task2)
-
 }
+
+//const getStorage = function() {
+//    projectList = localStorage.getItem('projectList')
+//}
 
 export { initialize, createDefaults }
