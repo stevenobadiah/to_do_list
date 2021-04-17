@@ -6,6 +6,8 @@ $silver: #d8d8d8;
 
 body {
     background-color: white;
+    position: relative;
+    min-height: 100vh;
 }
 
 header {
@@ -13,6 +15,8 @@ header {
     justify-content: center;
     padding: 20px;
     background-color: $dark-green;
+    height: 10vh;
+    width: 100%;
     h1 {
         color: $silver;
         font-weight: bold;
@@ -20,7 +24,10 @@ header {
 }
 
 main {
-    min-height: 500px;
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    align-items: stretch;
     #projects {
         padding: 20px;
         background-color: $light-green;
@@ -32,9 +39,28 @@ main {
                 padding-right: 20px;
             }
         }
+        #projectsList {
+            .project {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 60px;
+                margin: 10px 0;
+                padding: 10px;
+                .projectTitle {
+                    width: 80%;
+                    margin: 0;
+                    padding: 0;
+                }
+                .projectEditBtn {
+                    width: 20%;
+                }
+            }
+        }
     }
     #projectDetails {
-        padding: 20px;
+        padding: 20px 20px 40px 20px;
         #projectHeader {
             display: flex;
             flex-direction: column;
@@ -60,6 +86,7 @@ main {
             .taskSection {
                 .task {
                     padding: 10px;
+                    margin-bottom: 10px;
                     .taskInfo {
                         display: flex;
                         flex-direction: row;
@@ -77,6 +104,9 @@ main {
                             margin-bottom: 0;
                         }
                     }
+                    button {
+                        margin-right: 10px;
+                    }
                 }
             }
         }
@@ -84,6 +114,7 @@ main {
     #formSection {
         padding: 20px;
         div {
+            display: none;
             form {
                 display: flex;
                 flex-direction: column;
@@ -105,36 +136,10 @@ main {
     }
 }
 
-.form-container {
-    display: none;
-}
-
-#projectsList {
-    div {
-        height: 40px;
-        margin: 10px 0;
-    }
-} 
-
-#tasksList > div {
-    height: 80px;
-    margin: 10px 0;
-}
-
-.project, .task {
-    border: 1px solid grey;
-}
-
-.project {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.projectEditBtn {
-    width: 100px;
-}
-
-.projectTitle {
-    width: 300px;
+footer {
+    height: 5vh;
+    background-color: $dark-green;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

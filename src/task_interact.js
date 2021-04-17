@@ -33,7 +33,7 @@ const editTask = (ev) => {
     let taskTitle = document.getElementById('taskTitle' + currentTask.id)
     taskTitle.innerHTML = document.getElementById('editTaskTitle').value
     let taskDueDate = document.getElementById('taskDueDate' + currentTask.id)
-    taskDueDate.innerHTML = document.getElementById('editTaskDueDate').value
+    taskDueDate.innerHTML = "Due Date: " + document.getElementById('editTaskDueDate').value
 
     if (currentTask.completion == false) {
         currentTasksDOM.appendChild(taskNode)

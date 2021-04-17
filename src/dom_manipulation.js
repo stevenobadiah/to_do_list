@@ -114,9 +114,9 @@ function setCurrentProject(project) {
     for (var i = 0; i < projectList.length; i++ ) {
         let projectNodeTemp = document.getElementById("project" + projectList[i].id)
         if (projectList[i].id == project.id) {
-            projectNodeTemp.style.border = "thick solid yellow"
+            projectNodeTemp.style.backgroundColor = "white"
         } else {
-            projectNodeTemp.style.border = "1px dashed grey"
+            projectNodeTemp.style.backgroundColor = "rgb(224, 224, 224)"
         }
     }    
 }

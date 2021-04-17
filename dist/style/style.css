@@ -1,18 +1,25 @@
 /* sass --watch dist/style/style.scss */
 body {
-  background-color: white; }
+  background-color: white;
+  position: relative;
+  min-height: 100vh; }
 
 header {
   display: flex;
   justify-content: center;
   padding: 20px;
-  background-color: #2d6832; }
+  background-color: #2d6832;
+  height: 10vh;
+  width: 100%; }
   header h1 {
     color: #d8d8d8;
     font-weight: bold; }
 
 main {
-  min-height: 500px; }
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: stretch; }
   main #projects {
     padding: 20px;
     background-color: #5fc067; }
@@ -22,8 +29,22 @@ main {
       justify-content: flex-start; }
       main #projects #projectsHeader h2 {
         padding-right: 20px; }
+    main #projects #projectsList .project {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+      margin: 10px 0;
+      padding: 10px; }
+      main #projects #projectsList .project .projectTitle {
+        width: 80%;
+        margin: 0;
+        padding: 0; }
+      main #projects #projectsList .project .projectEditBtn {
+        width: 20%; }
   main #projectDetails {
-    padding: 20px; }
+    padding: 20px 20px 40px 20px; }
     main #projectDetails #projectHeader {
       display: flex;
       flex-direction: column;
@@ -43,7 +64,8 @@ main {
         text-decoration: underline;
         padding: 10px 0; }
       main #projectDetails #tasks .taskSection .task {
-        padding: 10px; }
+        padding: 10px;
+        margin-bottom: 10px; }
         main #projectDetails #tasks .taskSection .task .taskInfo {
           display: flex;
           flex-direction: row;
@@ -57,45 +79,31 @@ main {
               padding-right: 5px; }
           main #projectDetails #tasks .taskSection .task .taskInfo p {
             margin-bottom: 0; }
+        main #projectDetails #tasks .taskSection .task button {
+          margin-right: 10px; }
   main #formSection {
     padding: 20px; }
-    main #formSection div form {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start; }
-      main #formSection div form label {
-        margin-bottom: 2px; }
-      main #formSection div form button {
-        margin: 10px 10px 0 0;
-        min-width: 40%;
-        width: 40%; }
-      main #formSection div form input, main #formSection div form select {
-        width: 80%;
-        margin-bottom: 10px; }
+    main #formSection div {
+      display: none; }
+      main #formSection div form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; }
+        main #formSection div form label {
+          margin-bottom: 2px; }
+        main #formSection div form button {
+          margin: 10px 10px 0 0;
+          min-width: 40%;
+          width: 40%; }
+        main #formSection div form input, main #formSection div form select {
+          width: 80%;
+          margin-bottom: 10px; }
 
-.form-container {
-  display: none; }
-
-#projectsList div {
-  height: 40px;
-  margin: 10px 0; }
-
-#tasksList > div {
-  height: 80px;
-  margin: 10px 0; }
-
-.project, .task {
-  border: 1px solid grey; }
-
-.project {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
-
-.projectEditBtn {
-  width: 100px; }
-
-.projectTitle {
-  width: 300px; }
+footer {
+  height: 5vh;
+  background-color: #2d6832;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
