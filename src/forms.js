@@ -1,4 +1,4 @@
-import { currentProject } from './global_variables'
+import { currentProject, currentTask } from './global_variables'
 
 function closeAddProjectForm() {
     document.getElementById('addProjectFormContainer').style.display = 'none';
@@ -60,14 +60,22 @@ function clearTaskForm() {
     document.getElementById('taskPriority').value = ""
 }
 
+function openEditProjectForm(project) {
+    showEditProjectForm()
+    document.getElementById('editProjectTitle').value = project.title
+    document.getElementById('editProjectDueDate').value = project.due_date
+    document.getElementById('editProjectDescription').value = project.description
+    currentProject = project
+}
 
-document.addEventListener('DOMContentLoaded', ()=> {
-    document.getElementById('btnAddProject').addEventListener('click', showAddProjectForm)
-    document.getElementById('btnCancelAddProject').addEventListener('click', closeAddProjectForm)
-    document.getElementById('btnCancelEditProject').addEventListener('click', closeEditProjectForm)
-    document.getElementById('btnAddTask').addEventListener('click', showAddTaskForm)
-    document.getElementById('btnCancelAddTask').addEventListener('click', closeAddTaskForm)
-    document.getElementById('btnCancelEditTask').addEventListener('click', closeEditTaskForm)
-})
+function openEditTaskForm(task) {
+    showEditTaskForm()
+    document.getElementById('editTaskFormContainer').style.display = 'block';
+    document.getElementById('editTaskTitle').value = task.title
+    document.getElementById('editTaskDueDate').value = task.due_date
+    document.getElementById('editTaskDescription').value = task.description
+    document.getElementById('editTaskPriority').value = task.priority
+    currentTask = task;
+}
 
-export { closeAddProjectForm, closeEditProjectForm, closeAddTaskForm, closeEditTaskForm, showEditProjectForm, showEditTaskForm, clearProjectForm, clearTaskForm }
+export { closeAddProjectForm, closeEditProjectForm, closeAddTaskForm, closeEditTaskForm, showAddProjectForm, showAddTaskForm, showEditProjectForm, showEditTaskForm, clearProjectForm, clearTaskForm, openEditProjectForm, openEditTaskForm }
