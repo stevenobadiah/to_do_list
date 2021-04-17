@@ -1,8 +1,16 @@
-#projectFormContainer {
+#addProjectFormContainer {
     display: none;
 }
 
-#taskFormContainer {
+#editProjectFormContainer {
+    display: none;
+}
+
+#addTaskFormContainer {
+    display: none;
+}
+
+#editTaskFormContainer {
     display: none;
 }
 
@@ -12,10 +20,24 @@
 }
 
 #tasksList > div {
-    height: 40px;
+    height: 80px;
     margin: 10px 0;
 }
 
 .project, .task {
     border: 1px solid grey;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projectEditBtn {
+    width: 100px;
+}
+
+.projectTitle {
+    width: 300px;
 }

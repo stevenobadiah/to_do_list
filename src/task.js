@@ -1,4 +1,4 @@
-class Task {
+module.exports = class Task {
     constructor(id ,title, due_date, description, priority) {
         this.id = id
         this.title = title
@@ -16,28 +16,4 @@ class Task {
     markIncomplete() {
         this.completion = false
     };
-
-    changePriority(newPriority) {
-        this.priority = newPriority;
-    };
-
 };
-
-export default Task
-
-/*
-class Rectangle {
-    constructor(height, width) {
-      this.height = height;
-      this.width = width;
-    }
-    // Getter
-    get area() {
-      return this.calcArea();
-    }
-    // Method
-    calcArea() {
-      return this.height * this.width;
-    }
-  }
-*/

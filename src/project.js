@@ -1,4 +1,4 @@
-class Project {
+module.exports = class Project {
     constructor(id ,title, due_date, description ) {
         this.id = id
         this.title = title
@@ -20,7 +20,7 @@ class Project {
     addTask(task) {
         this.tasks.push(task)
     }
-
+    
     removeTask(task) {
         for (var i = 0; i < this.tasks.length; i++ ) {
             if ( tasks[i] == task ) {
@@ -28,7 +28,4 @@ class Project {
             }
         }
     };
-    
 };
-
-export default Project
