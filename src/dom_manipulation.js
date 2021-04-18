@@ -1,7 +1,7 @@
 import { colorBorder, displayCurrentTask } from "./dom_styling"
 import { projectListDOM, currentTasksDOM, completedTasksDOM, projectList, currentProject } from "./global_variables"
-import { format, parse } from 'date-fns';
-
+import { format, parse } from "date-fns";
+ 
 function createTaskDOM(task) {
     let taskNode = document.createElement("div");
     taskNode.classList.add("task")

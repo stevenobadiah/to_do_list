@@ -10,4 +10,18 @@ function returnNewIndex(array) {
     }
 }
 
-export { returnNewIndex }
+function addToLocalStorage(projectList) {
+    localStorage.clear()
+    localStorage.setItem("projects", JSON.stringify(projectList))
+}
+
+function getFromLocalStorage() {
+    const reference = localStorage.getItem("projects")
+    if (reference) {
+        let storedProjects = JSON.parse(reference)
+        return storedProjects
+    } else {
+        return null
+    }
+}
+export { returnNewIndex, addToLocalStorage, getFromLocalStorage }

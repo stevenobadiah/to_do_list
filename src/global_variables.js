@@ -1,6 +1,6 @@
-const projectListDOM = document.getElementById('projectsList')
-const currentTasksDOM = document.getElementById('currentTasks')
-const completedTasksDOM = document.getElementById('completedTasks')
+const projectListDOM = document.getElementById("projectsList")
+const currentTasksDOM = document.getElementById("currentTasks")
+const completedTasksDOM = document.getElementById("completedTasks")
 
 var projectList = [];
 var currentProject;

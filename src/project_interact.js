@@ -1,17 +1,26 @@
-import Project from './project'
-import { returnNewIndex } from './global_functions'
-import { closeAddProjectForm, closeEditProjectForm, clearProjectForm } from './forms'
-import { projectList, currentProject } from './global_variables'
-import { createProjectDOM, setCurrentProject } from './dom_manipulation'
+import Project from "./project"
+import { returnNewIndex, addToLocalStorage } from "./global_functions"
+import { closeAddProjectForm, closeEditProjectForm, clearProjectForm } from "./forms"
+import { projectList, currentProject } from "./global_variables"
+import { createProjectDOM, setCurrentProject } from "./dom_manipulation"
+import { format, parse } from "date-fns";
 
 const addProject = (ev)=> {
     ev.preventDefault();
 
+    let dateString = document.getElementById("projectDueDate").value
+    let formattedDate
+    if (dateString == "") {
+        formattedDate = null
+    } else {
+        formattedDate = format(parse(dateString, "yyyy-MM-dd", new Date()), "MM/dd/yyyy")
+    }
+
     let project = new Project (
         returnNewIndex(projectList),
-        document.getElementById('projectTitle').value,
-        document.getElementById('projectDueDate').value,
-        document.getElementById('projectDescription').value
+        document.getElementById("projectTitle").value,
+        formattedDate,
+        document.getElementById("projectDescription").value
     )
 
     projectList.push(project);
@@ -25,26 +34,36 @@ const addProject = (ev)=> {
     setCurrentProject(project)
     clearProjectForm();
     closeAddProjectForm();
+    addToLocalStorage(projectList)
 };
 
 const editProject = (ev) => {
-    currentProject.title = document.getElementById('editProjectTitle').value
-    currentProject.due_date = document.getElementById('editProjectDueDate').value
-    currentProject.description = document.getElementById('editProjectDescription').value
+    let dateString = document.getElementById("editProjectDueDate").value
+    let formattedDate
+    if (dateString == "") {
+        formattedDate = null
+    } else {
+        formattedDate = format(parse(dateString, "yyyy-MM-dd", new Date()), "MM/dd/yyyy")
+    }
 
-    let projectTitle = document.getElementById('projectTitle' + currentProject.id)
-    projectTitle.innerHTML = document.getElementById('editProjectTitle').value
+    currentProject.title = document.getElementById("editProjectTitle").value
+    currentProject.due_date = formattedDate
+    currentProject.description = document.getElementById("editProjectDescription").value
 
-    let titleDisplay = document.getElementById('projectTitleDisplay')
-    titleDisplay.innerHTML = document.getElementById('editProjectTitle').value
+    let projectTitle = document.getElementById("projectTitle" + currentProject.id)
+    projectTitle.innerHTML = document.getElementById("editProjectTitle").value
 
-    let dueDateDisplay = document.getElementById('projectDueDateDisplay')
-    dueDateDisplay.innerHTML = "Due Date: " + document.getElementById('editProjectDueDate').value
+    let titleDisplay = document.getElementById("projectTitleDisplay")
+    titleDisplay.innerHTML = document.getElementById("editProjectTitle").value
 
-    let descriptionDisplay = document.getElementById('projectDescriptionDisplay')
-    descriptionDisplay.innerHTML = document.getElementById('editProjectDescription').value
+    let dueDateDisplay = document.getElementById("projectDueDateDisplay")
+    dueDateDisplay.innerHTML = "Due Date: " + formattedDate
+
+    let descriptionDisplay = document.getElementById("projectDescriptionDisplay")
+    descriptionDisplay.innerHTML = document.getElementById("editProjectDescription").value
 
     closeEditProjectForm()
+    addToLocalStorage(projectList)
 };
 
 export { addProject, editProject }
