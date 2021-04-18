@@ -10,6 +10,7 @@ header {
   padding: 20px;
   background-color: #2d6832;
   height: 10vh;
+  min-height: 80px;
   width: 100%; }
   header h1 {
     color: #d8d8d8;
@@ -71,6 +72,8 @@ main {
           flex-direction: row;
           justify-content: space-between;
           padding-bottom: 10px; }
+          main #projectDetails #tasks .taskSection .task .taskInfo .taskTitle {
+            width: 33.33%; }
           main #projectDetails #tasks .taskSection .task .taskInfo .taskCompleteSection {
             display: flex;
             flex-direction: row;

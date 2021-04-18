@@ -16,6 +16,7 @@ header {
     padding: 20px;
     background-color: $dark-green;
     height: 10vh;
+    min-height: 80px;
     width: 100%;
     h1 {
         color: $silver;
@@ -92,6 +93,9 @@ main {
                         flex-direction: row;
                         justify-content: space-between;
                         padding-bottom: 10px;
+                        .taskTitle {
+                            width: 33.33%;
+                        }
                         .taskCompleteSection {
                             display: flex;
                             flex-direction: row;

@@ -1,4 +1,5 @@
 import { currentProject, currentTask } from './global_variables'
+import { format, parse } from 'date-fns';
 
 function closeAddProjectForm() {
     document.getElementById('addProjectFormContainer').style.display = 'none';
@@ -70,9 +71,18 @@ function openEditProjectForm(project) {
 
 function openEditTaskForm(task) {
     showEditTaskForm()
+
+    let dateString = task.due_date
+    let formattedDate
+    if (dateString == null) {
+        formattedDate = null
+    } else {
+        formattedDate = format(parse(dateString, "MM/dd/yyyy", new Date()), "yyyy-MM-dd")
+    }
+
     document.getElementById('editTaskFormContainer').style.display = 'block';
     document.getElementById('editTaskTitle').value = task.title
-    document.getElementById('editTaskDueDate').value = task.due_date
+    document.getElementById('editTaskDueDate').value = formattedDate
     document.getElementById('editTaskDescription').value = task.description
     document.getElementById('editTaskPriority').value = task.priority
     currentTask = task;

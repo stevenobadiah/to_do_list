@@ -4,14 +4,23 @@ import { closeAddTaskForm, closeEditTaskForm, clearTaskForm } from './forms'
 import { currentTasksDOM, completedTasksDOM, currentProject, currentTask } from './global_variables'
 import { createTaskDOM } from './dom_manipulation'
 import { colorBorder, displayCurrentTask } from './dom_styling'
+import { format, parse } from 'date-fns';
 
 const addTask = (ev)=> {
     ev.preventDefault();
 
+    let dateString = document.getElementById('taskDueDate').value
+    let formattedDate
+    if (dateString == "") {
+        formattedDate = null
+    } else {
+        formattedDate = format(parse(dateString, "yyyy-MM-dd", new Date()), "MM/dd/yyyy")
+    }
+
     let task = new Task (
         returnNewIndex(currentProject.tasks),
         document.getElementById('taskTitle').value,
-        document.getElementById('taskDueDate').value,
+        formattedDate,
         document.getElementById('taskDescription').value,
         document.getElementById('taskPriority').value
     )
@@ -24,8 +33,16 @@ const addTask = (ev)=> {
 };
 
 const editTask = (ev) => {
+    let dateString = document.getElementById('editTaskDueDate').value
+    let formattedDate
+    if (dateString == "") {
+        formattedDate = null
+    } else {
+        formattedDate = format(parse(dateString, "yyyy-MM-dd", new Date()), "MM/dd/yyyy")
+    }
+
     currentTask.title = document.getElementById('editTaskTitle').value
-    currentTask.due_date = document.getElementById('editTaskDueDate').value
+    currentTask.due_date = formattedDate
     currentTask.description = document.getElementById('editTaskDescription').value
     currentTask.priority = document.getElementById('editTaskPriority').value
 
@@ -33,7 +50,11 @@ const editTask = (ev) => {
     let taskTitle = document.getElementById('taskTitle' + currentTask.id)
     taskTitle.innerHTML = document.getElementById('editTaskTitle').value
     let taskDueDate = document.getElementById('taskDueDate' + currentTask.id)
-    taskDueDate.innerHTML = "Due Date: " + document.getElementById('editTaskDueDate').value
+    if (formattedDate == null) {
+        taskDueDate.innerHTML = ""
+    } else {
+        taskDueDate.innerHTML = "Due Date: " + formattedDate
+    }
 
     if (currentTask.completion == false) {
         currentTasksDOM.appendChild(taskNode)

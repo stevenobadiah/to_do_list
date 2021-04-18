@@ -5,6 +5,7 @@ import { createTaskDOM, createProjectDOM, setCurrentProject } from './dom_manipu
 import { closeAddProjectForm, closeEditProjectForm, closeAddTaskForm, closeEditTaskForm, showAddProjectForm, showAddTaskForm, openEditProjectForm, openEditTaskForm } from './forms'
 import { addProject, editProject } from './project_interact'
 import { addTask, editTask, completeTask, deleteTask } from './task_interact'
+import { parseISO, format } from 'date-fns';
 
 const initialize = function() {
     //Dom Listening js?
@@ -54,20 +55,23 @@ const createDefaults = function() {
     //if (localStorage.getItem('projectList').length == 1) {
     //    
     //}
-    let date = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
-    date = '2025-05-19'
+    //let date = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+    let date = new Date(2025, 11, 17)
+    //let stringDate = date.toDateString()
+    let formattedDate = format(date, 'MM/dd/yyyy')
+    //let date = format(new Date(new Date().setFullYear(new Date().getFullYear() + 1)), 'yyyy-mm-dd')
 
     let project = new Project (
         0,
         "Default Project",
-        date,
+        formattedDate,
         "default project description",
     )
 
     let task1 = new Task (
         0,
         'Default Task 1',
-        date,
+        formattedDate,
         'First task to complete',
         'Low'
     )
@@ -75,7 +79,7 @@ const createDefaults = function() {
     let task2 = new Task (
         1,
         'Default Task 2',
-        date,
+        formattedDate,
         'Second task to complete',
         'Low'
     )

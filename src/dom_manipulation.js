@@ -1,5 +1,6 @@
 import { colorBorder, displayCurrentTask } from "./dom_styling"
 import { projectListDOM, currentTasksDOM, completedTasksDOM, projectList, currentProject } from "./global_variables"
+import { format, parse } from 'date-fns';
 
 function createTaskDOM(task) {
     let taskNode = document.createElement("div");
@@ -16,8 +17,14 @@ function createTaskDOM(task) {
 
     let taskDueDate = document.createElement("p");
     taskDueDate.classList.add("taskDueDate")
-    taskDueDate.innerHTML = "Due Date: " + task.due_date
     taskDueDate.id = "taskDueDate" + task.id
+    
+    if (task.due_date == null) {
+        taskDueDate.innerHTML = ""
+    } else {
+        taskDueDate.innerHTML = "Due Date: " + task.due_date
+    }
+    
 
     let taskDescription = document.createElement("p");
     taskDescription.classList.add("taskDescription")
